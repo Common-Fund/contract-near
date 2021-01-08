@@ -1,0 +1,18 @@
+{
+  "name": "near-contracts",
+  "version": "1.0.0",
+  "description": "Near contracts for Common Fund",
+  "private": true,
+  "scripts": {
+    "build": "npm run clean && asb",
+    "build:debug": "asb --target debug",
+    "clean": "rm -rf neardev out",
+    "deploy:dev": "npm run build && near dev-deploy",
+    "deploy:testnet": "NEAR_ENV=testnet npm run build && near deploy --accountId cfcontract.testnet --initFunction initialize --initArgs '{}'",
+    "deploy:mainnet": "NEAR_ENV=mainnet npm run build && near deploy --accountId commonfund.near --initFunction initialize --initArgs '{}'"
+  },
+  "devDependencies": {
+    "near-cli": "1.2.0",
+    "near-sdk-as": "2.1.0"
+  }
+}
